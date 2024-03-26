@@ -1,0 +1,10 @@
+SECTION 1
+What is JavaScript?
+- JS is a dynamic, weakly typed programming language which is compiled 
+at runtime. It can be executed as part of a webpage in a browser or 
+directly on any machine ("host environgment").
+- JS interpreted language, "on the fly" compiled language.
+- "Hosted language". It runs in different environments (e.g. in 
+browser).
+- Most prominent use-case: run code in a browser (on a webpage).
+- Dynamic, weakly-typed programming language.
