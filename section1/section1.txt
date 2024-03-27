@@ -16,3 +16,12 @@ this code to machine code and then execute the machine code. The effect
 you will see is the webpage being rendered on screen.
 The engine and/or the processor runs JS on a single thread.
 
+Dynamic? Weakly typed?
+dynamic means that JS is not pre-compiled, instead is parsed and compiled 
+on the fly (e.g. in the browser). Code evaluated and executed at runtime. 
+Code can change at runtime (e.g. type of a variable). I can store a text 
+in a variable and then at a later time I can update it to a number. The 
+same is not allowed on other programming languages.
+Weakly typed means that when we work with data in JS, for ex. text data 
+or numbers, you don't have to tell JS that I'm going to work with a text 
+now or I'm going to work with a number now.
