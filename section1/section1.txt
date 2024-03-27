@@ -8,3 +8,11 @@ directly on any machine ("host environgment").
 browser).
 - Most prominent use-case: run code in a browser (on a webpage).
 - Dynamic, weakly-typed programming language.
+
+How JavaScript is executed?
+If we are running a JS code into the browser, the browser has something 
+called engine; the engine is responsible to parse code, compile 
+this code to machine code and then execute the machine code. The effect 
+you will see is the webpage being rendered on screen.
+The engine and/or the processor runs JS on a single thread.
+
