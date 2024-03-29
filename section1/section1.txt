@@ -25,3 +25,15 @@ same is not allowed on other programming languages.
 Weakly typed means that when we work with data in JS, for ex. text data 
 or numbers, you don't have to tell JS that I'm going to work with a text 
 now or I'm going to work with a number now.
+
+JavaScript Runs on a host environment
+JS can be run in the browser and also on server-side (like Java & PHP).
+Running JS in the browser means I can manipulate HTML and CSS files, 
+and also send background HTTP requests, but I can't access the local 
+fylesystem for security reasons. If I run JS as Node.js, i.e. on 
+server-side, I can access the filesystem but I can't manipulate 
+HTML and CSS.
+CLIENT-SIDE (BROWSER) / SERVER-SIDE (NODE.JS)
+
+
+
