@@ -1,0 +1,13 @@
+SECTION 2 - Working with Control Structures (if statements, loops, 
+erros handling)
+
+- Boolean operators in JS
+== check for value equality e.g. a == b
+!= check for value inequality e.g. a != b
+=== and !== check for value AND type (in)equality 
+	e.g. a === b
+	e.g. a !== b
+ > & < check for value being greater / smaller e.g. a > b / a < b
+>= & <= check for value being greater or equal / smaller 
+	or equal e.g. a >= b / a <= b
+! check if NOT true e.g. !a
