@@ -11,3 +11,18 @@ erros handling)
 >= & <= check for value being greater or equal / smaller 
 	or equal e.g. a >= b / a <= b
 ! check if NOT true e.g. !a
+
+S4 Lecture 81 - Beyond true & false: truthy and falsy values
+- In the condition that needs to be provided within the if statement 
+JS expect a boolean value. If I provide a variable which value holds 
+a string, the if statement will treat this value as TRUE and in this 
+case more especifically as TRUTHY value. What JS does is to coerce the 
+string value to a boolean value.
+- JS treats the following as:
+	0 -> falsy
+	ANY other number (incl. negative numbers) -> truthy
+	'' (empty string) -> falsy
+	ANY other non-empty string (incl. "false") -> truthy
+	{}, [] & all other objects or arrays are treated as truthy
+	null, undefined and NaN -> falsy
+
