@@ -77,6 +77,7 @@ function writeToLog(event, value, monsterHealth, playerHealth) {
       default:
         logEntry = {};
   }
+
   // if (event === LOG_EVENT_PLAYER_ATTACK) {
   //   logEntry = {
   //     event: event,
@@ -225,7 +226,21 @@ function healPlayerHandler() {
 }
 
 function writeLogHandler() {
-  console.log(battleLog);
+  for (let i = 0; i < 3; i++) {
+    console.log('----------------');
+  }
+
+  // for (let i = 10; i > 0; i--) {
+  //   console.log(i);
+  // }
+  
+  // for (let i = 0; i < battleLog.length; i++) {
+  //   console.log(battleLog[i]);
+  // }
+
+  for (const logEntry of battleLog) {
+    console.log(logEntry);
+  }
 }
 
 attackBtn.addEventListener("click", attackHandler);
