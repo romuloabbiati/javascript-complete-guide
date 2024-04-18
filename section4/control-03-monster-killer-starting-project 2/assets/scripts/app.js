@@ -27,7 +27,22 @@ function getMaxLifeValues() {
   return parsedValue;
 }
 
-let chosenMaxLife = getMaxLifeValues();
+let chosenMaxLife;
+
+try {
+  chosenMaxLife = getMaxLifeValues();
+} catch (error) {
+  console.log(error);
+  chosenMaxLife = 100;
+  alert('You entered something wrong, default value of 100 was used!');
+  // throw error;
+} finally {
+  // I can use finally to do any clean up work if you for example 
+  // have a case where another error is thrown. 
+  // If I rethrow the error in catch, the rest of the app will not 
+  // run, but if I use finally, it will run the code within finally 
+  // even if an error is rethrown/thrown within catch.
+}
 
 let currentMonsterHealth = chosenMaxLife;
 let currentPlayerHealth = chosenMaxLife;
