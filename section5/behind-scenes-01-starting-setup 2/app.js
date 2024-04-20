@@ -16,6 +16,13 @@
 
 // greet();
 
-console.log(userName);
+// console.log(userName);
 
-var userName = 'Romulo';
+// var userName = 'Romulo';
+
+// 'use strict';
+
+let userName = 'Romulo';
+let undefined = 5;
+
+console.log(userName);
