@@ -1,0 +1,3 @@
+SECTION 5 - Behind the scenes & the (weird) Past (ES3, ES5) & 
+Present (ES6+) of Javascript
+
