@@ -1,36 +1,32 @@
-const startGameBtn = document.getElementById('start-game-btn');
+const startGameBtn = document.getElementById("start-game-btn");
 
-// FUNCTION EXPRESSION
-// this one is read by the browser however I need to initialise 
-// first before I use
-// const startGame = function() {
-//     console.log('game is starting...');
-// }
+const ROCK = "ROCK";
+const PAPER = "PAPER";
+const SCISSORS = "SCISSORS";
+const DEFAULT_USER_CHOICE = ROCK;
 
-// FUNCTION DECLARATION / FUNCTION STATEMENT
-// this way, this function gets hoisted by the browser. It means 
-// the browser will read the file once and place this function at 
-// the top and initialise this function
-// function startGame() {
-//     console.log('game is starting...');
-// }
+let gameIsRunning = false;
 
-startGame();
+const getPlayerChoice = function () {
+  const selection = prompt(`${ROCK}, ${PAPER} or ${SCISSORS}`).toUpperCase();
+  if (
+    selection !== ROCK && 
+    selection !== PAPER && 
+    selection !== SCISSORS
+    ) {
+        alert(`Invalid choice! We chose ${ROCK} for you!`);
+        return DEFAULT_USER_CHOICE;
+  } else {
+    return selection;
+  }
+};
 
-function startGame() {
-    console.log('game is starting...');
-}
-
-// const person = {
-//     name: 'Romulo', // a variable inside of an object is called PROPERTY
-//     greet: function() { // a function inside of an object is called METHOD
-//         console.log("Hello, I'm Romulo!");
-//     }
-// }
-
-// person.greet();
-
-// console.dir(startGame);
-
-
-startGameBtn.addEventListener('click', startGame);
+startGameBtn.addEventListener("click", function() {
+    if(gameIsRunning) {
+        return;
+    }
+    gameIsRunning = true;
+    console.log('Game is starting...')
+    const playerSelection = getPlayerChoice();
+    console.log(playerSelection);
+});
