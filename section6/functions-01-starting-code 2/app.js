@@ -88,9 +88,13 @@ startGameBtn.addEventListener("click", () => {
 // to a function, so I provide a name to these arguments and in front 
 // of this name I need to write 3 dots without a white space
 const sumUp = (a, b, ...numbers) => {
+  const validateNumber = (number) => {
+    return isNaN(number) ? 0 : number;
+  };
+
   let sum = 0;
   for (const num of numbers) {
-    sum += num;
+    sum += validateNumber(num);
   }
   return sum;
 }
