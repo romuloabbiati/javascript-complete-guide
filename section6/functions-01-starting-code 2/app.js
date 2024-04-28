@@ -71,42 +71,79 @@ startGameBtn.addEventListener("click", () => {
   } else {
     winner = getWinner(computerChoice);
   }
-  let message = `You picked ${playerChoice || DEFAULT_USER_CHOICE}, computer picked ${computerChoice}, therefore you `;
+  let message = `You picked ${
+    playerChoice || DEFAULT_USER_CHOICE
+  }, computer picked ${computerChoice}, therefore you `;
   if (winner === RESULT_DRAW) {
-    message = message + 'had a draw!';
+    message = message + "had a draw!";
   } else if (winner === RESULT_PLAYER_WINS) {
-    message = message + 'won!';
+    message = message + "won!";
   } else {
-    message = message + 'lost!';
+    message = message + "lost!";
   }
   alert(message);
   gameIsRunnning = false;
 });
 
 // not related to game
-// rest parameters/rest operator is used when I need to pass many arguments 
-// to a function, so I provide a name to these arguments and in front 
+// rest parameters/rest operator is used when I need to pass many arguments
+// to a function, so I provide a name to these arguments and in front
 // of this name I need to write 3 dots without a white space
-const sumUp = (a, b, ...numbers) => {
+const combine = (resultHandler, operation, a, b, ...numbers) => {
   const validateNumber = (number) => {
     return isNaN(number) ? 0 : number;
   };
 
   let sum = 0;
   for (const num of numbers) {
-    sum += validateNumber(num);
+    if (operation === "ADD") {
+      sum += validateNumber(num);
+    } else if (operation === "SUBTRACT") {
+      sum -= validateNumber(num);
+    }
   }
-  return sum;
-}
+  resultHandler(sum);
+};
 
-const subtractUp = function() {
-  let sum = 0;
-  for (const num of arguments) { // don't use that
-    sum -= num;
-  }
-  return sum;
-}
+// const subtractUp = function(resultHandler, ...numbers) {
+//   let sum = 0;
+//   for (const num of numbers) { // don't use that
+//     sum -= num;
+//   }
+//   resultHandler(sum);
+// };
 
-console.log(sumUp(1, 5, 10, -3, 6, 10));
-console.log(sumUp(1, 5, 10, -3, 6, 10, 25, 88));
-console.log(subtractUp(1, 10, 15, 20));
+const showResult = (messageText, result) => {
+  alert(messageText + " " + result);
+};
+
+combine(
+  showResult.bind(this, "The result after adding all numbers is:"),
+  "ADD",
+  1,
+  5,
+  10,
+  -3,
+  6,
+  10
+);
+combine(
+  showResult.bind(this, "The result after adding all numbers is:"),
+  "ADD",
+  1,
+  5,
+  10,
+  -3,
+  6,
+  10,
+  25,
+  88
+);
+combine(
+  showResult.bind(this, "The result after subtracting all numbers is:"),
+  "SUBTRACT",
+  1,
+  10,
+  15,
+  20
+);
