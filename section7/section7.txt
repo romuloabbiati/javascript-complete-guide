@@ -1,0 +1,15 @@
+SECTION 7 - Working with the DOM (Browser HTML Code) in JS
+
+L161 - Creating Elements with JS - Overview
+
+I can create elements with HTML String
+	innerHTML -> add (render) HTML String
+	insertAdjacentHTML() -> add (render) HTML string in specific 
+	position
+
+createElement()
+	appendChild() / append() -> append new DOM element / node
+	prepend(), before(), after(), insertBefore() -> insert new 
+	DOM element / node in specific position
+	replaceChild(), replaceWith() -> replace existing DOM element / 
+	node with new one 
