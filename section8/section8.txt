@@ -1,0 +1,16 @@
+SECTION 8 - More on Arrays & Iterables
+
+There are many ways in creating arrays in JAVASCRIPT.
+
+const arr = [1]
+const arr = ['hi']
+const arr = Array.of(1)
+const arr = Array(1)
+const arr = Array('hi')
+const arr = Array.of('hi')
+const arr = Array.from(1)
+const arr = new Array(1)
+const arr = new Array('hi')
+const arr = Array.from('hi')
+
+
