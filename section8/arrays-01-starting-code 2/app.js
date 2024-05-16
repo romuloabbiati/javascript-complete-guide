@@ -44,9 +44,38 @@
 // const removedElements = hobbies.splice(-2, 2);
 // console.log(hobbies);
 
-const testResults = [1, 5.3, 1.5, 10.99, -5, 10];
+const testResults = [1, 5.3, 1.5, 10.99, 1.5, -5, 10];
 // const storedResults = testResults.slice(2);
 const storedResults = testResults.concat([3.99, 2]);
 testResults.push(5.91);
 
 console.log(storedResults, testResults);
+
+// console.log(testResults.indexOf(1.5));\\
+console.log(testResults.lastIndexOf(1.5));
+
+const personData = [{name: 'Romulo'}, {name: 'Isabela'}];
+console.log(personData.indexOf({name: 'Isabela'})); 
+
+const isabela = personData.find((person, idx, persons) => {
+    return person.name = 'Isabela';
+});
+
+console.log(isabela);
+
+isabela.name = 'Anna';
+
+console.log(isabela, personData);
+
+const annaIndex = personData.findIndex((person, idx, persons) => {
+    return person.name = 'Anna';
+});
+
+console.log(annaIndex);
+
+// the result of the 
+// indexOf() method when using objects, which are reference values, is 
+// -1, because I'm looking for an object in memory and in the argument 
+// of indexOf() I passed another object, so the method could not find 
+// a matching object because both are different. There is another 
+// method that works for this case.
