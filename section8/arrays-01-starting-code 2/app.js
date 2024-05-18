@@ -140,3 +140,15 @@ console.log(filteredArray);
 let sum = prices.reduce((prevValue, curValue) => prevValue + curValue, 0);
 
 console.log(sum);
+
+// split()
+const data = 'new york;10.99;2000';
+
+const transformedData = data.split(';');
+transformedData[1] = +transformedData[1];
+console.log(transformedData);
+
+// join()
+const nameFragments = ['Romulo', 'Hipolito Abbiati'];
+const name = nameFragments.join(' ');
+console.log(name);
