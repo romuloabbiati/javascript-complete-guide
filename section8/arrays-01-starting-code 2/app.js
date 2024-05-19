@@ -58,7 +58,7 @@
 // console.log('Is 10.99 included in this array', testResults.indexOf(10.99) !== -1);
 
 // const personData = [{name: 'Romulo'}, {name: 'Isabela'}];
-// console.log(personData.indexOf({name: 'Isabela'})); 
+// console.log(personData.indexOf({name: 'Isabela'}));
 
 // const isabela = personData.find((person, idx, persons) => {
 //     return person.name = 'Isabela';
@@ -76,11 +76,11 @@
 
 // console.log(annaIndex);
 
-// the result of the 
-// indexOf() method when using objects, which are reference values, is 
-// -1, because I'm looking for an object in memory and in the argument 
-// of indexOf() I passed another object, so the method could not find 
-// a matching object because both are different. There is another 
+// the result of the
+// indexOf() method when using objects, which are reference values, is
+// -1, because I'm looking for an object in memory and in the argument
+// of indexOf() I passed another object, so the method could not find
+// a matching object because both are different. There is another
 // method that works for this case.
 
 // const prices = [10.99, 5.99, 3.99, 6.59];
@@ -102,20 +102,20 @@ const prices = [10.99, 5.99, 3.99, 6.59];
 const tax = 0.19;
 
 const taxAdjustedPrices = prices.map((price, idx, prices) => {
-    const priceObj = { index: idx, taxAdjPrice: price * (1 + tax) };
-    return priceObj;
+  const priceObj = { index: idx, taxAdjPrice: price * (1 + tax) };
+  return priceObj;
 });
 
 // console.log(prices, taxAdjustedPrices);
 
 const sortedPrices = prices.sort((a, b) => {
-    if (a > b) {
-        return -1;
-    } else if (a === b) {
-        return 0;
-    } else {
-        return 1;
-    }
+  if (a > b) {
+    return -1;
+  } else if (a === b) {
+    return 0;
+  } else {
+    return 1;
+  }
 });
 
 // console.log(sortedPrices.reverse());
@@ -125,7 +125,7 @@ console.log(sortedPrices);
 //     return price > 6;
 // });
 
-const filteredArray = prices.filter(p => p > 6);
+const filteredArray = prices.filter((p) => p > 6);
 
 console.log(filteredArray);
 
@@ -142,13 +142,32 @@ let sum = prices.reduce((prevValue, curValue) => prevValue + curValue, 0);
 console.log(sum);
 
 // split()
-const data = 'new york;10.99;2000';
+const data = "new york;10.99;2000";
 
-const transformedData = data.split(';');
+const transformedData = data.split(";");
 transformedData[1] = +transformedData[1];
 console.log(transformedData);
 
 // join()
-const nameFragments = ['Romulo', 'Hipolito Abbiati'];
-const name = nameFragments.join(' ');
+const nameFragments = ["Romulo", "Hipolito Abbiati"];
+const name = nameFragments.join(" ");
 console.log(name);
+
+// SPREAD OPERATOR
+const copiedNameFragments = [...nameFragments];
+nameFragments.push("Mr.");
+console.log(nameFragments, copiedNameFragments);
+
+console.log(Math.min(...prices));
+
+const persons = [
+  { name: "Romulo", age: 37 },
+  { name: "Isabela", age: 32 },
+];
+const copiedPersons = [
+  ...persons.map((person) => ({ name: person.name, age: person.age })),
+];
+persons.push({ name: "Anna", age: 36 });
+persons[0].age = 38;
+
+console.log(persons, copiedPersons);
