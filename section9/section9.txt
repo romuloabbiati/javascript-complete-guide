@@ -1,0 +1,19 @@
+SECTION 9 - More on Objects
+
+- What are objects?
+
+- Objects are a core data structure in JAVASCRIPT.
+- Typically reflect real-world entities.
+	- e.g. button, movie.
+	- allows us to apply real-world logic to coding.
+- an object in JavaScript is made up of properties & methods
+
+- there are 2 type of values in JS: PRIMITIVE VALUES & REFERENCE VALUES 
+(= OBJECTS)
+
+Primitive values: numbers, strings, booleans, null, undefined, symbol
+Reference values (=objects): is everything else, e.g.,  DOM node is an 
+object, array is an object, things that I create on my own with { ... }, 
+other built-in objects.
+
+
