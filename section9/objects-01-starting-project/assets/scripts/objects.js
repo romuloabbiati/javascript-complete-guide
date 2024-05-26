@@ -1,29 +1,55 @@
-const movieList = document.getElementById('movie-list');
+const addMovieBtn = document.getElementById("add-movie-btn");
+const searchBtn = document.getElementById("search-btn");
 
-movieList.style['background-color'] = 'red';
-movieList.style.display = 'block';
+const movies = [];
 
-const userChosenKeyName = 'level';
+const renderMovies = () => {
+    const movieList = document.getElementById('movie-list');
 
-let person = {
-    'first name': 'Romulo',
-    age: 37,
-    hobbies: ['Cooking', 'Coding'],
-    [userChosenKeyName]: '...',
-    greet: function() {
-        console.log('Hi there!');
-    },
-    1.5: 'Hello'
+    if (movies.length === 0) {
+        movieList.classList.remove('visible');
+        return;
+    } else {
+        movieList.classList.add('visible');
+    }
+    movieList.innerHTML = '';
+
+    movies.forEach((movie) => {
+        const movieEl = document.createElement('li');
+        let text = movie.info.title + ' - ';
+        for (const key in movie.info) {
+            if (key !== 'title') {
+                text = text + `${key}: ${movie.info[key]}`; 
+            }
+        }
+        movieEl.textContent = text;
+        movieList.append(movieEl);
+    });
 };
 
-// person.age = 36;
-delete person.age;
-// person.age = undefined;
-// person.age = null;
-person.isAdmin = true;
+const addMovieHandler = () => {
+  const title = document.getElementById("title").value;
+  const extraName = document.getElementById("extra-name").value;
+  const extraValue = document.getElementById("extra-value").value;
 
-const keyName = 'first name';
+  if (
+    (title.trim() === "") |
+    (extraName.trim() === "") |
+    (extraValue.trim() === "")
+  ) {
+    return;
+  }
 
-console.log(person[keyName]);
-console.log(person[1.5]);
-console.log(person);
+  const newMovie = {
+    info: {
+        title: title,
+        [extraName]: extraValue
+    },
+    id: Math.random()
+  };
+
+  movies.push(newMovie);
+  renderMovies();
+};
+
+addMovieBtn.addEventListener('click', addMovieHandler);
