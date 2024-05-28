@@ -18,7 +18,7 @@ const renderMovies = (filter = "") => {
     ? movies
     : movies.filter((movie) => movie.info.title.includes(filter));
 
-    filteredMovies.forEach((movie) => {
+  filteredMovies.forEach((movie) => {
     const movieEl = document.createElement("li");
     let text = movie.info.title + " - ";
     for (const key in movie.info) {
@@ -49,7 +49,7 @@ const addMovieHandler = () => {
       title: title,
       [extraName]: extraValue,
     },
-    id: Math.random(),
+    id: Math.random().toString(),
   };
 
   movies.push(newMovie);
