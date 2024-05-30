@@ -18,6 +18,15 @@ const renderMovies = (filter = "") => {
     ? movies
     : movies.filter((movie) => movie.info.title.includes(filter));
 
+    // how can I check for property existance?
+    // if ('info' in info) {
+
+    // }
+    // OR
+    // if (movie.info === undefined) {
+
+    // }
+
   filteredMovies.forEach((movie) => {
     const movieEl = document.createElement("li");
     const { info, ...otherProps } = movie;
