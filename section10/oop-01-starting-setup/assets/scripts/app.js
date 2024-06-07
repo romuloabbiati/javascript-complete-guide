@@ -12,20 +12,34 @@ class Product {
   }
 }
 
+class ShoppingCart {
+  items = [];
+
+  render() {
+    const cartEl = document.createElement("section");
+    cartEl.innerHTML = `
+      <h2>Total: \$${0}</h2>
+      <button>Order Now!</button>
+    `;
+    cartEl.className = "cart";
+    return cartEl;
+  }
+}
+
 class ProductItem {
   constructor(product) {
     this.product = product;
   }
 
   addToCart() {
-    console.log('Adding product to cart...');
+    console.log("Adding product to cart...");
     console.log(this.product);
   }
 
   render() {
     const prodEl = document.createElement("li");
-      prodEl.className = "product-item";
-      prodEl.innerHTML = `
+    prodEl.className = "product-item";
+    prodEl.innerHTML = `
                 <img src='${this.product.imgUrl}' alt='${this.product.title}' >
                 <div class='product-item__content'>
                     <h2>${this.product.title}</h2>
@@ -34,9 +48,9 @@ class ProductItem {
                     <button>Add to Cart</button>
                 </div>
       `;
-      const addCartButton = prodEl.querySelector('button');
-      addCartButton.addEventListener('click', this.addToCart.bind(this));
-      return prodEl;
+    const addCartButton = prodEl.querySelector("button");
+    addCartButton.addEventListener("click", this.addToCart.bind(this));
+    return prodEl;
   }
 }
 
@@ -54,12 +68,11 @@ class ProductList {
       "A carpet you might like - or not",
       89.99
     ),
-  ]
+  ];
 
   constructor() {}
 
   render() {
-    const renderHook = document.getElementById("app");
     const prodList = document.createElement("ul");
     prodList.className = "product-list";
 
@@ -68,10 +81,23 @@ class ProductList {
       const prodEl = productItem.render();
       prodList.append(prodEl);
     }
-
-    renderHook.append(prodList);
+    return prodList;
   }
 }
 
-const productList = new ProductList();
-productList.render();
+class Shop {
+  render() {
+    const renderHook = document.getElementById("app");
+
+    const cart = new ShoppingCart();
+    const cartEl = cart.render();
+    const productList = new ProductList();
+    const prodListEl = productList.render();
+    
+    renderHook.append(prodListEl);
+    renderHook.append(cartEl);
+  }
+}
+
+const shop = new Shop();
+shop.render();
