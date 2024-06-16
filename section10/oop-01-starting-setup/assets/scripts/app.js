@@ -20,9 +20,14 @@ class ElementAttribute {
 }
 
 class Component {
-  constructor(renderHookId) {
+  constructor(renderHookId, shouldRender = true) {
     this.hookId = renderHookId;
+    if (shouldRender) {
+      this.render();
+    }
   }
+
+  render() {}
 
   createRootElement(tag, cssClasses, attributes) {
     const rootElement = document.createElement(tag);
@@ -79,8 +84,9 @@ class ShoppingCart extends Component {
 
 class ProductItem extends Component {
   constructor(product, renderHookId) {
-    super(renderHookId);
+    super(renderHookId, false);
     this.product = product;
+    this.render();
   }
 
   addToCart() {
@@ -104,23 +110,35 @@ class ProductItem extends Component {
 }
 
 class ProductList extends Component {
-  products = [
-    new Product(
-      "A pillow",
-      "https://content.cylindo.com/api/v2/4980/products/20354CUSHIONS-65%20X%2065/frames/4/20354CUSHIONS-65%20X%2065.webp?size=1024&feature=COLOUR:347",
-      "A soft pillow",
-      19.99
-    ),
-    new Product(
-      "A carpet",
-      "https://images.ctfassets.net/9y4fi2gkk4ov/47bITZF9JSc6RIMohq0qap/53db350cfd22912cb642cdb504a5a660/Cambria_Ruby_Tufted_Rug_5x7.jpg?fm=avif&w=1920&q=75",
-      "A carpet you might like - or not",
-      89.99
-    ),
-  ];
+  products = [];
 
   constructor(renderHookId) {
     super(renderHookId);
+    this.fetchProducts();
+  }
+
+  fetchProducts() {
+    this.products = [
+      new Product(
+        "A pillow",
+        "https://content.cylindo.com/api/v2/4980/products/20354CUSHIONS-65%20X%2065/frames/4/20354CUSHIONS-65%20X%2065.webp?size=1024&feature=COLOUR:347",
+        "A soft pillow",
+        19.99
+      ),
+      new Product(
+        "A carpet",
+        "https://images.ctfassets.net/9y4fi2gkk4ov/47bITZF9JSc6RIMohq0qap/53db350cfd22912cb642cdb504a5a660/Cambria_Ruby_Tufted_Rug_5x7.jpg?fm=avif&w=1920&q=75",
+        "A carpet you might like - or not",
+        89.99
+      ),
+    ];
+    this.renderProducts();
+  }
+
+  renderProducts() {
+    for (const prod of this.products) {
+      new ProductItem(prod, "prod-list");
+    }
   }
 
   render() {
@@ -128,19 +146,20 @@ class ProductList extends Component {
       new ElementAttribute("id", "prod-list"),
     ]);
 
-    for (const prod of this.products) {
-      const productItem = new ProductItem(prod, "prod-list");
-      productItem.render();
+    if (this.products && this.products.length > 0) {
+      this.renderProducts();
     }
   }
 }
 
 class Shop {
+  constructor() {
+    this.render();
+  }
+
   render() {
     this.cart = new ShoppingCart("app");
-    this.cart.render();
-    const productList = new ProductList("app");
-    productList.render();
+    new ProductList("app");
   }
 }
 
@@ -149,7 +168,6 @@ class App {
 
   static init() {
     const shop = new Shop();
-    shop.render();
     this.cart = shop.cart;
   }
 
