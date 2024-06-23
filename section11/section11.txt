@@ -1,0 +1,35 @@
+SECTION 11 - Deep Dive: Constructor Functions & Prototypes
+
+- in the past JS didn't have Classes, it is a quite new feature.
+- Instead JS had something called CONSTRUCTOR FUNCTIONS; in the end what Classes do 
+It uses Constructor functions.
+- Constructor functions are used as a blueprint for Objects, and also used to instantiate 
+Properties and Methods and so far is the same as Classes.
+
+Current we use a class as a blueprint to create objects:
+
+class Person {
+	name = 'Romulo';
+
+	constructor() {
+		this.age = 37;
+	}
+
+	greet() {
+			console.log(
+				`Hi my name is ${this.name} and I am ${this.age} years old`
+			)
+	}
+}
+
+PREVIOUSLY
+
+function Person() {
+	this.name = 'Romulo';
+	this.age = 37;
+	this.greet = function() {
+		console.log(
+			`Hi my name is ${this.name} and I am ${this.age} years old`
+		)
+	}
+}
